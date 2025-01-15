@@ -1,0 +1,83 @@
+site_name: Holonet Exchange
+site_url: https://wiki.holonet.exchange
+watch:
+  - includes
+theme:
+  name: material
+  logo: assets/holocron.png
+  icon:
+    repo: fontawesome/brands/github
+  favicon: assets/holocron.png
+  custom_dir: overrides
+  features:
+    - content.action.edit
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tabs
+    - navigation.sections
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.share
+  plugins:
+    - blog
+    - search
+    - git-revision-date-localized:
+        enable_creation_date: true
+        type: iso_date
+    - git-authors
+    - meta
+    # https://squidfunk.github.io/mkdocs-material/plugins/tags
+    - tags:
+        enabled: true
+
+  # Automagic dark or light theme depending on system preferences
+  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/?h=dark+theme#automatic-light-dark-mode
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+repo_url: https://github.com/droidforensics/wiki.holonet.exchange
+repo_name: Wiki Source
+edit_uri: edit/main/docs
+
+markdown_extensions:
+  # These 3 are needed for admonitions (callouts)
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  # These 3 allow for a site-wide glossary
+  - abbr
+  - attr_list
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
+  # Wikilinks via the `mdx-wikilinks-plus` package
+  # https://github.com/mkdocs/catalog?tab=readme-ov-file
+  - mdx_wikilink_plus
+
+nav:
+  - index.md
+  - Windows Related:
+    - 'windows-related/index.md'
+    - PowerShell:
+      - 'windows-related/powershell/index.md'
